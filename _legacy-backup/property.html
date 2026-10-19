@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zillow Listing | Zillow</title>
+  <meta name="description" content="View listing photos, review sales history and contact the listing agent.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <script>window.ROOT = "./";</script>
+
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="brand" href="index.html" aria-label="Zillow home">
+        <svg viewBox="0 0 132 30" role="img" aria-label="Zillow"><text x="1" y="24" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-1.2" fill="currentColor">zillow</text></svg>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main">
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Buy <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Homes for sale</a>
+            <a class="menu__item" href="homes/for_sale/?type=House">New construction</a>
+            <a class="menu__item" href="homes/for_sale/?type=Condo">Condos for sale</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Rent <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_rent/">Rental homes</a>
+            <a class="menu__item" href="homes/for_rent/?type=Apartment">Apartments for rent</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Sell <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="index.html">Sell your home</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Get a mortgage <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Current mortgage rates</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Find an agent <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Real estate agents</a>
+          </div>
+        </div>
+      </nav>
+
+      <span class="header-spacer"></span>
+
+      <nav class="secondary-nav" aria-label="Secondary">
+        <a class="secondary-nav__link" href="homes/for_rent/">Manage rentals</a>
+        <a class="secondary-nav__link" href="index.html">Advertise</a>
+        <a class="secondary-nav__link" href="index.html">Sign in</a>
+        <a class="btn" href="index.html">Join</a>
+      </nav>
+
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav__section">
+      <a class="mobile-nav__link" href="homes/for_sale/">Buy: Homes for sale</a>
+      <a class="mobile-nav__link" href="homes/for_rent/">Rent: Homes for rent</a>
+    </div>
+    <div class="mobile-nav__actions">
+      <button type="button" class="btn btn--ghost">Sign in</button>
+      <button type="button" class="btn">Join</button>
+    </div>
+  </div>
+
+  <main class="pdp" id="pdp">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="index.html">Zillow</a> &rsaquo;
+      <a href="homes/for_sale/">Homes for sale</a> &rsaquo;
+      <span id="crumb-city">Listing</span>
+    </nav>
+
+    <div id="pdp-hero"></div>
+
+    <div id="pdp-gallery"></div>
+
+    <div class="pdp__body">
+      <div>
+        <section class="pdp__section">
+          <h2>About this home</h2>
+          <p id="pdp-description"></p>
+        </section>
+
+        <section class="pdp__section">
+          <h2>Facts &amp; features</h2>
+          <div class="facts" id="pdp-facts"></div>
+        </section>
+
+        <section class="pdp__section">
+          <h2>Features</h2>
+          <ul class="feature-list" id="pdp-features"></ul>
+        </section>
+
+        <section class="pdp__section">
+          <h2>Price history</h2>
+          <div class="timeline" id="pdp-history"></div>
+        </section>
+      </div>
+
+      <aside id="pdp-agent"></aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="footer-col">
+        <h3>Real Estate</h3>
+        <ul>
+          <li><a href="homes/for_sale/">Browse all homes</a></li>
+          <li><a href="homes/for_sale/">Explore region insights</a></li>
+          <li><a href="index.html">Homepage</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Rentals</h3>
+        <ul>
+          <li><a href="homes/for_rent/">Rental homes</a></li>
+          <li><a href="homes/for_rent/?type=Apartment">Apartments for rent</a></li>
+          <li><a href="homes/for_rent/?type=House">Houses for rent</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Mortgage Rates</h3>
+        <ul>
+          <li><a href="homes/for_sale/">Current mortgage rates</a></li>
+          <li><a href="homes/for_sale/">Refinance rates</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="index.html">Zestimates</a></li>
+          <li><a href="index.html">Research</a></li>
+          <li><a href="index.html">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Help</h3>
+        <ul>
+          <li><a href="index.html">Advertise</a></li>
+          <li><a href="index.html">Fair housing guide</a></li>
+          <li><a href="index.html">Terms of use</a></li>
+          <li><a href="index.html">Privacy notice</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="site-footer__divider">
+
+    <div class="site-footer__legal">
+      <div class="site-footer__links">
+        <a href="index.html">Terms of use</a>
+        <a href="index.html">Privacy notice</a>
+        <a href="index.html">Ad choices</a>
+        <a href="index.html">Do Not Sell or Share My Personal Information &rarr;</a>
+      </div>
+      <p>
+        This is a non-commercial local replica of the Zillow user interface, built as a front-end exercise.
+        All listings, prices, addresses, agents and photos are fabricated demo data. Not affiliated with,
+        endorsed by, or connected to Zillow Group, Inc.
+      </p>
+      <p class="footer-copyright">&copy; 2006-2026 Zillow clone &middot; <a href="index.html">Equal Housing Opportunity</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/sprite.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

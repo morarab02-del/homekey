@@ -1,0 +1,338 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-cream-50 text-ink-900 antialiased dark:bg-ink-900 dark:text-muted-100;
+    font-feature-settings: "cv11", "ss01";
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brass-500 ring-offset-2 ring-offset-cream-50 dark:ring-offset-ink-900;
+  }
+  ::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cream-100 dark:bg-ink-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-[3px] border-solid border-transparent bg-brass-300 dark:bg-brass-700;
+    background-clip: content-box;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-semibold
+      transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-md { @apply h-10 px-4; }
+  .btn-lg { @apply h-12 px-6 text-base; }
+  .btn-primary {
+    @apply bg-brass-500 text-white shadow-sm hover:bg-brass-600 active:scale-[.98];
+  }
+  .btn-secondary {
+    @apply border border-brass-200 bg-cream-50 text-ink-900 hover:bg-cream-100
+      dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10;
+  }
+  .btn-ghost {
+    @apply text-ink-600 hover:bg-cream-100 dark:text-muted-500 dark:hover:bg-white/10;
+  }
+  .btn-wa {
+    @apply bg-[#25D366] text-[#04310F] shadow-sm hover:bg-[#20bd5a] active:scale-[.98];
+  }
+
+  .surface {
+    @apply rounded-xl2 border border-brass-200/60 bg-surface-card shadow-card
+      dark:border-white/10 dark:bg-surface-card;
+  }
+  .surface-flat {
+    @apply rounded-xl2 border border-brass-200/50 bg-cream-50 dark:border-white/10 dark:bg-white/[.03];
+  }
+  .glass {
+    @apply rounded-xl2 border border-brass-200/50 bg-cream-50/60 shadow-glass;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+  }
+  .glass-strong {
+    @apply rounded-xl2 border border-white/60 bg-cream-50/80 shadow-glass;
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+  }
+  .canvas-stage {
+    @apply relative overflow-hidden rounded-xl3 border border-brass-200/60;
+    background:
+      radial-gradient(120% 80% at 30% 10%, rgba(212,184,120,.18), transparent 60%),
+      radial-gradient(100% 90% at 80% 100%, rgba(122,96,56,.14), transparent 55%),
+      linear-gradient(180deg, #F7F3EC 0%, #F0E7DA 100%);
+  }
+  .dark .canvas-stage {
+    background:
+      radial-gradient(120% 80% at 30% 10%, rgba(176,141,87,.22), transparent 60%),
+      radial-gradient(100% 90% at 80% 100%, rgba(92,74,46,.18), transparent 55%),
+      linear-gradient(180deg, #1a1410 0%, #241810 100%);
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+  .pill-ok { @apply bg-ok-100 text-ok-700 dark:bg-ok-700/25 dark:text-ok-200; }
+  .pill-soon { @apply bg-soon-100 text-soon-700 dark:bg-soon-700/25 dark:text-soon-200; }
+  .pill-muted { @apply bg-cream-100 text-muted-600 dark:bg-white/10 dark:text-muted-300; }
+  .pill-brand { @apply bg-brass-100 text-brass-700 dark:bg-brass-700/25 dark:text-brass-200; }
+
+  .field {
+    @apply h-11 w-full rounded-xl border border-brass-200 bg-cream-50 px-3 text-sm
+      text-ink-900 placeholder:text-muted-500 transition-colors
+      focus:border-brass-500 dark:border-white/15 dark:bg-white/5 dark:text-white;
+  }
+  .field-label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted-600 dark:text-muted-500;
+  }
+
+  .shimmer {
+    @apply relative overflow-hidden bg-cream-100 dark:bg-white/5;
+  }
+  .shimmer::after {
+    @apply absolute inset-0 -translate-x-full animate-shimmer
+      bg-gradient-to-r from-transparent via-white/60 to-transparent
+      dark:via-white/10;
+    content: "";
+  }
+
+  .shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section {
+    @apply py-14 sm:py-16;
+  }
+  .h-section {
+    @apply text-2xl font-bold tracking-tight sm:text-3xl;
+  }
+}
+
+/* Motion utilities */
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Scroll-triggered animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .reveal-fade {
+      opacity: 0;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-fade.visible {
+      opacity: 1;
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-1 { transition-delay: 0ms; }
+    .stagger-2 { transition-delay: 100ms; }
+    .stagger-3 { transition-delay: 200ms; }
+    .stagger-4 { transition-delay: 300ms; }
+    .stagger-5 { transition-delay: 400ms; }
+    .stagger-6 { transition-delay: 500ms; }
+
+    /* Parallax */
+    .parallax-slow {
+      transform: translateY(var(--parallax-y, 0));
+      will-change: transform;
+    }
+  }
+
+  /* Reduced motion fallbacks */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-up,
+    .reveal-fade,
+    .reveal-scale,
+    .parallax-slow,
+    .animate-enter,
+    .animate-exit,
+    .animate-backdrop-enter,
+    .animate-backdrop-exit,
+    .modal-backdrop-enter,
+    .modal-backdrop-exit,
+    .modal-dialog-enter,
+    .modal-dialog-exit,
+    .hover-spring {
+      animation: none !important;
+      transition: none !important;
+    }
+    .hover-spring:hover {
+      transform: none !important;
+      box-shadow: none !important;
+    }
+    /* Ensure reveal content is visible */
+    .reveal-up,
+    .reveal-fade,
+    .reveal-scale {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .parallax-slow {
+      transform: none !important;
+    }
+    /* Disable scroll-behavior smooth for reduced motion */
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Smooth hover transitions for interactive elements */
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .hover-lift:hover {
+    @apply -translate-y-1;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-200 ease-out;
+  }
+  .hover-scale:hover {
+    @apply scale-[1.02];
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 ease-out;
+  }
+  .hover-glow:hover {
+    @apply shadow-lift;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-ink-900 to-brass-500 bg-clip-text text-transparent;
+  }
+
+  /* Focus ring consistency */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-50 dark:focus-visible:ring-offset-ink-900;
+  }
+
+  /* Animation tokens & utilities */
+  /* Spring easing for premium feel */
+  .ease-spring {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .ease-smooth {
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Standard entrance keyframe */
+  @keyframes enter {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  @keyframes exit {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-8px) scale(0.98);
+    }
+  }
+  @keyframes backdrop-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes backdrop-exit {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .animate-enter {
+    animation: enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-exit {
+    animation: exit 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .animate-backdrop-enter {
+    animation: backdrop-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-backdrop-exit {
+    animation: backdrop-exit 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Stagger delays (more granular than existing stagger-1..6) */
+  .stagger-50 { animation-delay: 50ms; }
+  .stagger-75 { animation-delay: 75ms; }
+  .stagger-100 { animation-delay: 100ms; }
+  .stagger-125 { animation-delay: 125ms; }
+  .stagger-150 { animation-delay: 150ms; }
+  .stagger-200 { animation-delay: 200ms; }
+  .stagger-250 { animation-delay: 250ms; }
+  .stagger-300 { animation-delay: 300ms; }
+
+  /* Spring hover for premium interactions */
+  .hover-spring {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-spring:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: 0 12px 40px rgba(26,22,18,.12), 0 4px 12px rgba(26,22,18,.08);
+  }
+
+  /* Modal-specific entrance/exit */
+  .modal-backdrop-enter {
+    animation: backdrop-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .modal-backdrop-exit {
+    animation: backdrop-exit 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  .modal-dialog-enter {
+    animation: enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .modal-dialog-exit {
+    animation: exit 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}

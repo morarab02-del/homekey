@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zillow: Real Estate, Apartments, Mortgages &amp; Home Values</title>
+  <meta name="description" content="Zillow clone - local replica. Find homes for sale, apartments for rent, mortgage rates and home values.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <script>window.ROOT = "./";</script>
+
+  <header class="site-header">
+    <div class="site-header__bar">
+      <a class="brand" href="index.html" aria-label="Zillow home">
+        <svg viewBox="0 0 132 30" role="img" aria-label="Zillow"><text x="1" y="24" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-1.2" fill="currentColor">zillow</text></svg>
+      </a>
+
+      <nav class="primary-nav" aria-label="Main">
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Buy <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Homes for sale<small>Browse listings nationwide</small></a>
+            <a class="menu__item" href="homes/for_sale/?type=House">New construction</a>
+            <a class="menu__item" href="homes/for_sale/?max=400000">Homes under $400K</a>
+            <a class="menu__item" href="homes/for_sale/?type=Condo">Condos for sale</a>
+            <a class="menu__item" href="homes/for_sale/">Open houses</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Rent <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_rent/">Rental homes<small>Houses, condos &amp; apartments</small></a>
+            <a class="menu__item" href="homes/for_rent/?type=Apartment">Apartments for rent</a>
+            <a class="menu__item" href="homes/for_rent/?type=House">Houses for rent</a>
+            <a class="menu__item" href="homes/for_rent/?type=Townhouse">Townhomes for rent</a>
+            <a class="menu__item" href="homes/for_rent/?max=2500">Rentals under $2,500</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Sell <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Sell your home<small>See your Zestimate&reg; and options</small></a>
+            <a class="menu__item" href="homes/for_sale/">Home value estimate</a>
+            <a class="menu__item" href="homes/for_sale/">List as for sale by owner</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Get a mortgage <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Current mortgage rates</a>
+            <a class="menu__item" href="homes/for_sale/">Get pre-approved</a>
+            <a class="menu__item" href="homes/for_sale/">Refinance rates</a>
+            <a class="menu__item" href="homes/for_sale/">Affordability calculator</a>
+          </div>
+        </div>
+        <div class="primary-nav__item">
+          <button type="button" class="primary-nav__link">Find an agent <span class="caret"></span></button>
+          <div class="menu">
+            <a class="menu__item" href="homes/for_sale/">Real estate agents<small>Compare local agents</small></a>
+            <a class="menu__item" href="homes/for_sale/">Agent reviews</a>
+            <a class="menu__item" href="homes/for_sale/">Property managers</a>
+          </div>
+        </div>
+      </nav>
+
+      <span class="header-spacer"></span>
+
+      <nav class="secondary-nav" aria-label="Secondary">
+        <a class="secondary-nav__link" href="homes/for_rent/">Manage rentals</a>
+        <a class="secondary-nav__link" href="homes/for_sale/">Advertise</a>
+        <a class="secondary-nav__link" href="homes/for_sale/">Sign in</a>
+        <a class="btn" href="homes/for_sale/">Join</a>
+      </nav>
+
+      <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav__section">
+      <a class="mobile-nav__link" href="homes/for_sale/">Buy: Homes for sale</a>
+      <a class="mobile-nav__link" href="homes/for_rent/">Rent: Homes for rent</a>
+      <a class="mobile-nav__link" href="homes/for_sale/">Sell: List your home</a>
+      <a class="mobile-nav__link" href="homes/for_sale/">Mortgage rates</a>
+      <a class="mobile-nav__link" href="homes/for_sale/">Find an agent</a>
+    </div>
+    <div class="mobile-nav__section">
+      <a class="mobile-nav__link" href="homes/for_rent/">Manage rentals</a>
+      <a class="mobile-nav__link" href="homes/for_sale/">Advertise</a>
+    </div>
+    <div class="mobile-nav__actions">
+      <button type="button" class="btn btn--ghost">Sign in</button>
+      <button type="button" class="btn">Join</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero__title">Rentals. Homes. Agents. Loans.</h1>
+      <p class="hero__subtitle">Search homes for sale, apartments for rent, and get help from agents on Zillow.</p>
+
+      <div class="hero__search">
+        <div class="searchbox" data-mode="sale">
+          <form class="searchbox__row" role="search" autocomplete="off">
+            <div class="searchbox__field">
+              <svg class="searchbox__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              <input type="search" id="hero-search" placeholder="Address, School, City, Zip or Neighborhood" aria-label="Search Zillow">
+            </div>
+            <button type="submit" class="btn btn--lg">Search</button>
+          </form>
+          <div class="searchbox__hint">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            Try "3 bedroom townhouses with fireplace in Austin, TX" or "open houses near me"
+          </div>
+          <div class="searchbox__suggestions" id="hero-suggestions"></div>
+        </div>
+      </div>
+
+      <p class="hero__note">Recommendations are based on your location and search activity.</p>
+    </section>
+
+    <section class="home-section">
+      <div class="home-section__head">
+        <div>
+          <h2 class="home-section__title">Recommended for you</h2>
+          <p class="home-section__sub">Homes based on your recent searches</p>
+        </div>
+        <a class="btn btn--outline" href="homes/for_sale/">See all homes for sale</a>
+      </div>
+      <div class="listing-grid" id="recommended-grid"></div>
+    </section>
+
+    <section class="home-section home-section--alt">
+      <div class="home-section__head">
+        <div>
+          <h2 class="home-section__title">Browse real estate near you</h2>
+          <p class="home-section__sub">Explore homes for sale and rent in popular markets</p>
+        </div>
+      </div>
+      <div class="listing-grid">
+        <a class="listing-card" href="homes/for_sale/?q=Seattle,%20WA">
+          <div class="listing-card__media">
+            <svg class="listing-card__art art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="--art-sky:#dbeafe;--art-lawn:#dbead8;--art-roof:#46536b" role="img" aria-label="Seattle, WA">
+              <use href="#art-classic"></use>
+            </svg>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">Seattle, WA</div>
+            <div class="listing-card__specs"><b>2 homes</b><span class="sep">|</span>1 rental</div>
+            <div class="listing-card__address">Homes for sale &amp; apartments</div>
+          </div>
+        </a>
+        <a class="listing-card" href="homes/for_sale/?q=Portland,%20OR">
+          <div class="listing-card__media">
+            <svg class="listing-card__art art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="--art-sky:#e3eefc;--art-lawn:#dcead9;--art-roof:#2f3947" role="img" aria-label="Portland, OR">
+              <use href="#art-modern"></use>
+            </svg>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">Portland, OR</div>
+            <div class="listing-card__specs"><b>2 homes</b><span class="sep">|</span>1 rental</div>
+            <div class="listing-card__address">Homes for sale &amp; apartments</div>
+          </div>
+        </a>
+        <a class="listing-card" href="homes/for_sale/?q=Austin,%20TX">
+          <div class="listing-card__media">
+            <svg class="listing-card__art art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="--art-sky:#fdeedd;--art-lawn:#e6e7c9;--art-roof:#7a5b43;--art-door:#b4562a" role="img" aria-label="Austin, TX">
+              <use href="#art-classic"></use>
+            </svg>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">Austin, TX</div>
+            <div class="listing-card__specs"><b>3 homes</b><span class="sep">|</span>1 rental</div>
+            <div class="listing-card__address">Homes for sale &amp; rentals</div>
+          </div>
+        </a>
+        <a class="listing-card" href="homes/for_sale/?q=Denver,%20CO">
+          <div class="listing-card__media">
+            <svg class="listing-card__art art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="--art-sky:#e4eefb;--art-lawn:#ddecd9" role="img" aria-label="Denver, CO">
+              <use href="#art-townhouse"></use>
+            </svg>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">Denver, CO</div>
+            <div class="listing-card__specs"><b>2 homes</b><span class="sep">|</span>1 rental</div>
+            <div class="listing-card__address">Homes for sale &amp; rentals</div>
+          </div>
+        </a>
+        <a class="listing-card" href="homes/for_sale/?q=Miami,%20FL">
+          <div class="listing-card__media">
+            <svg class="listing-card__art art" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" style="--art-sky:#e8f4fd;--art-lawn:#d6ecda;--art-roof:#31404f;--art-door:#d9b26a" role="img" aria-label="Miami, FL">
+              <use href="#art-modern"></use>
+            </svg>
+          </div>
+          <div class="listing-card__body">
+            <div class="listing-card__price">Miami, FL</div>
+            <div class="listing-card__specs"><b>1 home</b><span class="sep">|</span>1 rental</div>
+            <div class="listing-card__address">Waterfront homes &amp; apartments</div>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__top">
+      <div class="footer-col">
+        <h3>Real Estate</h3>
+        <ul>
+          <li><a href="homes/for_sale/">Browse all homes</a></li>
+          <li><a href="homes/for_sale/">Explore region insights</a></li>
+          <li><a href="homes/for_sale/?q=Austin,%20TX">Austin real estate</a></li>
+          <li><a href="homes/for_sale/?q=Denver,%20CO">Denver real estate</a></li>
+          <li><a href="homes/for_sale/?q=Seattle,%20WA">Seattle real estate</a></li>
+          <li><a href="homes/for_sale/?q=Chicago,%20IL">Chicago real estate</a></li>
+          <li><a href="homes/for_sale/?q=Portland,%20OR">Portland real estate</a></li>
+          <li><a href="homes/for_sale/?q=Miami,%20FL">Miami real estate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Rentals</h3>
+        <ul>
+          <li><a href="homes/for_rent/">Rental buildings</a></li>
+          <li><a href="homes/for_rent/?type=Apartment">Austin apartments for rent</a></li>
+          <li><a href="homes/for_rent/?type=Apartment">Seattle apartments for rent</a></li>
+          <li><a href="homes/for_rent/?type=House">Atlanta houses for rent</a></li>
+          <li><a href="homes/for_rent/?type=House">Denver houses for rent</a></li>
+          <li><a href="homes/for_rent/?type=House">Chicago houses for rent</a></li>
+          <li><a href="homes/for_rent/?type=Apartment">Boston apartments for rent</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Mortgage Rates</h3>
+        <ul>
+          <li><a href="homes/for_sale/">Current mortgage rates</a></li>
+          <li><a href="homes/for_sale/">California mortgage rates</a></li>
+          <li><a href="homes/for_sale/">Florida mortgage rates</a></li>
+          <li><a href="homes/for_sale/">Texas mortgage rates</a></li>
+          <li><a href="homes/for_sale/">Washington mortgage rates</a></li>
+          <li><a href="homes/for_sale/">New York mortgage rates</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Browse Homes</h3>
+        <ul>
+          <li><a href="homes/for_sale/">California homes</a></li>
+          <li><a href="homes/for_sale/">Texas homes</a></li>
+          <li><a href="homes/for_sale/">Florida homes</a></li>
+          <li><a href="homes/for_sale/">Washington homes</a></li>
+          <li><a href="homes/for_sale/">Colorado homes</a></li>
+          <li><a href="homes/for_sale/">Illinois homes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>About</h3>
+        <ul>
+          <li><a href="homes/for_sale/">Zestimates</a></li>
+          <li><a href="homes/for_sale/">News</a></li>
+          <li><a href="homes/for_sale/">Research</a></li>
+          <li><a href="homes/for_sale/">Careers</a></li>
+          <li><a href="homes/for_sale/">Help</a></li>
+          <li><a href="homes/for_sale/">Advertise</a></li>
+          <li><a href="homes/for_sale/">Fair housing guide</a></li>
+          <li><a href="homes/for_sale/">Learn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="site-footer__divider">
+
+    <div class="site-footer__legal">
+      <div class="site-footer__links">
+        <a href="homes/for_sale/">Terms of use</a>
+        <a href="homes/for_sale/">Privacy notice</a>
+        <a href="homes/for_sale/">Ad choices</a>
+        <a href="homes/for_sale/">Cookie preference</a>
+        <a href="homes/for_sale/">Mobile apps</a>
+        <a href="homes/for_sale/">Do Not Sell or Share My Personal Information &rarr;</a>
+      </div>
+
+      <p>
+        Zillow Group is committed to ensuring digital accessibility for individuals with disabilities. We are
+        continuously working to improve the accessibility of our web experience for everyone, and we welcome
+        feedback and accommodation requests.
+      </p>
+      <p>
+        All mortgage lending products and information provided by Zillow Home Loans, LLC, NMLS #10287.
+        Equal Housing Opportunity. Zillow, Inc. holds real estate brokerage licenses in multiple states.
+      </p>
+      <p>
+        This is a non-commercial local replica of the Zillow user interface, built as a front-end exercise.
+        All listings, prices, addresses, agents and photos are fabricated demo data. Not affiliated with,
+        endorsed by, or connected to Zillow Group, Inc.
+      </p>
+
+      <div class="site-footer__bottom">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Zillow home">
+            <svg viewBox="0 0 132 30" role="img" aria-label="Zillow"><text x="1" y="24" font-family="'Segoe UI', Inter, 'Helvetica Neue', Arial, sans-serif" font-size="27" font-weight="800" letter-spacing="-1.2" fill="currentColor">zillow</text></svg>
+          </a>
+          <div class="footer-social">
+            <span>Follow us:</span>
+            <a href="homes/for_sale/" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l.5-3H13V9.2c0-.9.3-1.4 1.5-1.4H17V5.1C16.6 5 15.4 5 14.1 5 11.4 5 9.6 6.6 9.6 9.3V11H7v3h2.6v8H13z"/></svg></a>
+            <a href="homes/for_sale/" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="homes/for_sale/" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3h-2.7v12.2a2.6 2.6 0 1 1-2.6-2.6c.2 0 .5 0 .7.1V9.9a5.5 5.5 0 1 0 4.6 5.4V8.3a5.3 5.3 0 0 0 3.5 1.3V7a3.5 3.5 0 0 1-2.5-3.2V3z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="app-badges">
+          <a class="app-badge" href="homes/for_sale/">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.9c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.7.8-3.4.8s-1.8-.8-2.9-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.3-2.5 1.3-2.6-.1 0-2.7-1-2.7-3.7zM14.3 5.9c.6-.8 1-1.8.9-2.9-.9.1-2 .6-2.6 1.4-.6.7-1 1.7-.9 2.7 1 .1 2-.4 2.6-1.2z"/></svg>
+            <span><small>Download on the</small><b>App Store</b></span>
+          </a>
+          <a class="app-badge" href="homes/for_sale/">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.6 2.2 14 12.2 3.6 22.2c-.4-.3-.6-.8-.6-1.4V3.6c0-.6.2-1.1.6-1.4zm11.7 11.3 2.7 2.7-9.2 5.3 6.5-8zm0-2.6L8.8 3l9.2 5.3-2.7 2.6zM19.5 8.6l2.2 1.3c.8.5.8 1.7 0 2.2l-2.2 1.3-2.9-2.4 2.9-2.4z"/></svg>
+            <span><small>Get it on</small><b>Google Play</b></span>
+          </a>
+        </div>
+      </div>
+
+      <p class="footer-copyright">&copy; 2006-2026 Zillow clone &middot; <a href="homes/for_sale/">Equal Housing Opportunity</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/sprite.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

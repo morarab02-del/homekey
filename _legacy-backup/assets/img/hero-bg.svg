@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Neighborhood illustration">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eaf1ff"/>
+      <stop offset="55%" stop-color="#f4f7fb"/>
+      <stop offset="100%" stop-color="#f7f8fa"/>
+    </linearGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dfe8f4"/>
+      <stop offset="100%" stop-color="#eef3f9"/>
+    </linearGradient>
+    <linearGradient id="hillNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d7e6d8"/>
+      <stop offset="100%" stop-color="#e8f1e6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <circle cx="1180" cy="170" r="120" fill="#ffffff" opacity="0.65"/>
+
+  <!-- clouds -->
+  <g fill="#ffffff" opacity="0.85">
+    <ellipse cx="300" cy="150" rx="90" ry="34"/>
+    <ellipse cx="360" cy="132" rx="62" ry="30"/>
+    <ellipse cx="245" cy="136" rx="48" ry="24"/>
+    <ellipse cx="980" cy="105" rx="70" ry="26"/>
+    <ellipse cx="1030" cy="94" rx="46" ry="20"/>
+  </g>
+
+  <!-- far hills -->
+  <path d="M0,520 C170,440 300,486 430,452 C560,418 660,470 780,470 C900,470 1010,420 1140,444 C1270,468 1360,500 1440,470 L1440,900 L0,900 Z" fill="url(#hillFar)"/>
+
+  <!-- back row houses -->
+  <g opacity="0.55">
+    <g transform="translate(120,392)">
+      <rect x="0" y="34" width="96" height="70" fill="#c9d6e6"/>
+      <path d="M-8,34 L48,0 L104,34 Z" fill="#adc0d6"/>
+      <rect x="18" y="58" width="20" height="20" fill="#eef3f9"/>
+      <rect x="58" y="58" width="20" height="20" fill="#eef3f9"/>
+    </g>
+    <g transform="translate(268,412)">
+      <rect x="0" y="30" width="80" height="60" fill="#c5d3e4"/>
+      <path d="M-8,30 L40,2 L88,30 Z" fill="#a7bbd3"/>
+      <rect x="30" y="52" width="20" height="18" fill="#eef3f9"/>
+    </g>
+    <g transform="translate(1010,398)">
+      <rect x="0" y="34" width="104" height="66" fill="#c9d6e6"/>
+      <path d="M-8,34 L52,2 L112,34 Z" fill="#adc0d6"/>
+      <rect x="20" y="58" width="22" height="20" fill="#eef3f9"/>
+      <rect x="62" y="58" width="22" height="20" fill="#eef3f9"/>
+    </g>
+    <g transform="translate(1200,420)">
+      <rect x="0" y="28" width="76" height="56" fill="#c5d3e4"/>
+      <path d="M-6,28 L38,4 L82,28 Z" fill="#a7bbd3"/>
+    </g>
+  </g>
+
+  <!-- near hills -->
+  <path d="M0,610 C200,560 340,608 520,590 C700,572 820,620 1000,606 C1180,592 1320,624 1440,600 L1440,900 L0,900 Z" fill="url(#hillNear)"/>
+
+  <!-- road -->
+  <path d="M640,900 L700,640 L790,640 L900,900 Z" fill="#dfe3e8"/>
+  <g stroke="#ffffff" stroke-width="6" stroke-dasharray="28 26" opacity="0.9">
+    <path d="M795,660 L845,900"/>
+  </g>
+
+  <!-- trees -->
+  <g>
+    <g transform="translate(180,560)">
+      <rect x="10" y="40" width="10" height="40" fill="#8d6a4f"/>
+      <circle cx="15" cy="30" r="32" fill="#6fa86a"/>
+      <circle cx="-6" cy="42" r="22" fill="#5f9a5c"/>
+    </g>
+    <g transform="translate(1240,570)">
+      <rect x="10" y="40" width="10" height="40" fill="#8d6a4f"/>
+      <circle cx="15" cy="28" r="34" fill="#74ad6f"/>
+      <circle cx="38" cy="40" r="22" fill="#5f9a5c"/>
+    </g>
+    <g transform="translate(470,596)">
+      <rect x="8" y="32" width="8" height="30" fill="#8d6a4f"/>
+      <circle cx="12" cy="24" r="24" fill="#6fa86a"/>
+    </g>
+  </g>
+
+  <!-- featured house -->
+  <g transform="translate(560,520)">
+    <rect x="0" y="52" width="220" height="112" fill="#ffffff"/>
+    <path d="M-16,52 L110,-6 L236,52 Z" fill="#3b4a5f"/>
+    <rect x="18" y="80" width="46" height="42" fill="#cfe0f5"/>
+    <rect x="156" y="80" width="46" height="42" fill="#cfe0f5"/>
+    <rect x="94" y="96" width="34" height="68" fill="#006aff" opacity="0.85"/>
+    <rect x="20" y="60" width="180" height="6" fill="#eef2f7"/>
+    <rect x="70" y="164" width="80" height="8" fill="#eef2f7"/>
+  </g>
+
+  <!-- second row house -->
+  <g transform="translate(880,546)">
+    <rect x="0" y="44" width="180" height="86" fill="#ffffff"/>
+    <path d="M-12,44 L90,4 L192,44 Z" fill="#4a5a70"/>
+    <rect x="16" y="66" width="38" height="34" fill="#cfe0f5"/>
+    <rect x="126" y="66" width="38" height="34" fill="#cfe0f5"/>
+    <rect x="72" y="80" width="30" height="50" fill="#006aff" opacity="0.7"/>
+  </g>
+
+  <!-- small cottage -->
+  <g transform="translate(360,576)">
+    <rect x="0" y="36" width="140" height="66" fill="#ffffff"/>
+    <path d="M-10,36 L70,8 L150,36 Z" fill="#54627a"/>
+    <rect x="14" y="54" width="30" height="26" fill="#cfe0f5"/>
+    <rect x="96" y="54" width="30" height="26" fill="#cfe0f5"/>
+    <rect x="56" y="66" width="26" height="36" fill="#006aff" opacity="0.6"/>
+  </g>
+</svg>

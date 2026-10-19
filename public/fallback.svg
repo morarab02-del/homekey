@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Photo unavailable">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#DBEAFE"/>
+      <stop offset="100%" stop-color="#BFDBFE"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="180" fill="url(#bg)"/>
+  <g transform="translate(120 74)" fill="#1257A6">
+    <path d="M-42 18 L0 -18 L42 18 V38 H-42 Z" fill="#1257A6"/>
+    <rect x="-14" y="4" width="28" height="34" fill="#DBEAFE"/>
+    <rect x="-32" y="0" width="16" height="16" fill="#DBEAFE"/>
+    <rect x="16" y="0" width="16" height="16" fill="#DBEAFE"/>
+    <circle cx="-19" cy="22" r="3.2" fill="#DBEAFE"/>
+    <rect x="-16.4" y="21.3" width="12.5" height="3.4" rx="1.7" fill="#DBEAFE"/>
+  </g>
+  <text x="120" y="146" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="600" fill="#1257A6">HomeKey</text>
+</svg>
