@@ -162,7 +162,7 @@ export function BookingPanel({ property }: { property: Property }) {
           id="booking-confirm-heading"
           className="text-lg font-bold tracking-tight font-serif text-ink-primary"
         >
-          {nightly ? "Your stay request is ready" : "Your viewing request is ready"}
+          {nightly ? "Your stay request is ready" : "Your booking request is ready"}
         </h2>
         <p className="text-sm text-ink-muted">
           Nothing has been sent yet. Pick a channel below and your request goes straight to{" "}
@@ -528,14 +528,14 @@ export function BookingPanel({ property }: { property: Property }) {
             disabled={nightly && !stayValid}
             className="bg-ink-primary text-surface-main"
           >
-            {nightly ? "Request to book" : "Request a viewing"}
+            {nightly ? "Request to book" : "Book this property"}
           </Button>
         ) : null}
 
         <p className="text-xs leading-relaxed text-ink-muted">
           {nightly
             ? "You won't be charged yet — this request reserves the dates and the landlord confirms on WhatsApp."
-            : "Viewings are free and usually confirmed within 30 minutes during business hours."}
+            : "Submitting books the property and the landlord confirms on WhatsApp."}
         </p>
       </form>
     </section>
